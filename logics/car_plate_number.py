@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import pytesseract
 
 
-carplate_haar_cascade = cv2.CascadeClassifier('/Users/kupa/Documents/PycharmProjects/image_processing_bot/logics/haarcascade_russian_plate_number.xml')
+carplate_haar_cascade = cv2.CascadeClassifier('./haarcascade_russian_plate_number.xml')
 
 
 # Create function to retrieve only the car plate region itself
