@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "image_processing_bot"
+version = "0.0.0"
+description = "Bot for image processing"
+authors = ["Hiyorimi"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+aiogram = "^2.11.2"
+python-dotenv = "^0.15.0"
+opencv-python = "^4.5.1"
+pytesseract = "^0.3.7"
+tensorflow = "^2.4.1"
+
+[tool.poetry.dev-dependencies]
+jupyter = "^1.0.0"
+matplotlib = "^3.4.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
