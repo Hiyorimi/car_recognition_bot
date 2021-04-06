@@ -1,4 +1,4 @@
-# Image processing telegram bot
+# Telegram bot capable of recognizing car on the photo.
 
 This is a bot which is capable of processing sent images.
 
@@ -15,6 +15,6 @@ poetry run python3 main.py
 ### Docker setup
 
 ```bash
-docker build -t image_processing_bot 
-docker run -d --name image_processing_bot -e ENV=productionn -e API_TOKEN=1111:YOUR_TOKEN image_processing_bot python3 main.py.
+docker build -t car_recognition_bot 
+docker run -d --name car_recognition_bot -e ENV=productionn -e API_TOKEN=1111:YOUR_TOKEN car_recognition_bot python3 main.py.
 ```
