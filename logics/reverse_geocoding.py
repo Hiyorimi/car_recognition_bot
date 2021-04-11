@@ -8,7 +8,7 @@ URL_TEMPLATE = "https://geocode-maps.yandex.ru/1.x/?apikey={api_key}&geocode={lo
 
 
 def get_decimal_from_dms(dms: Tuple[float, float, float], ref: str) -> float:
-
+    """Gets coordinate as float from tuple of degrees, minutes and seconds."""
     degrees = dms[0]
     minutes = dms[1] / 60.0
     seconds = dms[2] / 3600.0
@@ -22,13 +22,20 @@ def get_decimal_from_dms(dms: Tuple[float, float, float], ref: str) -> float:
 
 
 def get_coordinates(geotags) -> Tuple[float, float]:
-    lat = get_decimal_from_dms(geotags['GPSLatitude'], geotags['GPSLatitudeRef'])
-    lon = get_decimal_from_dms(geotags['GPSLongitude'], geotags['GPSLongitudeRef'])
+    """Extracts latitude and longitude from geotags."""
+    lat = get_decimal_from_dms(
+        geotags['GPSLatitude'],
+        geotags['GPSLatitudeRef'],
+    )
+    lon = get_decimal_from_dms(
+        geotags['GPSLongitude'],
+        geotags['GPSLongitudeRef'],
+    )
 
     return lat, lon
 
 
-def get_geocoding_response(lat, long):
+def get_geocoding_response(lat: float, long: float):
     """Gets geocoding response from passed lat and long."""
     payload = {}
     headers = {}
@@ -43,7 +50,15 @@ def get_geocoding_response(lat, long):
 
 
 def parse_address_from_geocoding_response(geocoded_data: dict) -> str:
-    return geocoded_data['response']['GeoObjectCollection']['featureMember'][0]['GeoObject']['metaDataProperty']['GeocoderMetaData']['text']
+    """Gets address of the closest building."""
+    return geocoded_data[
+        'response'][
+        'GeoObjectCollection'][
+        'featureMember'][0][
+        'GeoObject'][
+        'metaDataProperty'][
+        'GeocoderMetaData'][
+        'text']
 
 
 def get_address_of_image(exif_data) -> str:

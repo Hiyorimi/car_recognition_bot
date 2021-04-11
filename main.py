@@ -37,11 +37,12 @@ async def send_welcome(message: types.Message):
     This handler will be called when user sends `/start` or `/help` command
     """
     await message.reply("Hi! "
-                        "I'm Image processing bot! "
-                        "Run your own copy with https://github.com/Hiyorimi/spaced_repetition_bot.")
+                        "I'm car recognition bot! "
+                        "Run your own copy with https://github.com/Hiyorimi/car_recognition_bot.")
 
 
 async def process_file(file_id: str, bot, message):
+    """Function for processing image file."""
     file_object = await bot.download_file_by_id(file_id)
     with open('test.jpg', 'wb') as fp:
         fp.write(file_object.read())
